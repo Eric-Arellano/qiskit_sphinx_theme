@@ -1,20 +1,21 @@
 {% if version_list %}
-    <div class="sidebar-tree qiskit-previous-releases-container">
+<div class="qiskit-previous-releases-container">
+    <input id="previous-releases-checkbox" name="previous-releases-checkbox" role="switch" type="checkbox">
+    <div class="qiskit-previous-releases-header-container">
+        <label for="previous-releases-checkbox">
+            <p role="note">Previous Releases</p>
+            <div class="qiskit-previous-releases-toggle-container">
+                <div class="visually-hidden">Toggle navigation of Previous Releases</div>
+                <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
+            </div>
+        </label>
+    </div>
+    <div class="qiskit-previous-releases-list-container">
         <ul>
-            <li class="toctree-l1 has-children">
-                <p class="reference internal qiskit-previous-releases-caption">Previous Releases</p>
-                <input class="toctree-checkbox" id="toctree-checkbox-previous-releases" name="toctree-checkbox-previous-releases" role="switch" type="checkbox">
-                <label for="toctree-checkbox-previous-releases">
-                    <div class="visually-hidden">Toggle navigation of Previous Releases</div>
-                    <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
-                </label>
-                <ul>
-                {% for version in version_list | sort(reverse=True) %}
-                    <li class="toctree-l2">
-                        <a class="reference internal" href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
+        {% for version in version_list | sort(reverse=True) %}
+            <li><a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a></li>
+        {% endfor %}
         </ul>
     </div>
+</div>
 {% endif %}
