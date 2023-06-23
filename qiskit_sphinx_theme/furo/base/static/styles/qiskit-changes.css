@@ -85,17 +85,6 @@ html {
   scroll-behavior: auto;
 }
 
-/* Without this, long titles break the site. This is especially a problem in API docs.
-*  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
 /* ------------------------------------------------------------------------------
 * Qiskit top nav bar
 * ------------------------------------------------------------------------------- */
@@ -162,6 +151,29 @@ div.header-left svg use {
 .toc-tree li.scroll-current > .reference {
   color: var(--color-toc-item-text);
   font-weight: unset;
+}
+
+/* ------------------------------------------------------------------------------
+* Font sizes
+* ------------------------------------------------------------------------------- */
+
+/* Disable Furo making the whole site larger on big screens. This results in `rem` having a
+* bigger size, so things like the Qiskit top nav bar getting bigger, which we don't like. */
+@media (min-width: 97em) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* Without this, long titles break the site. This is especially a problem in API docs.
+*  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 /* ---------------------------------------------------------------------------
