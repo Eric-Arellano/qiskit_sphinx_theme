@@ -176,6 +176,15 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* Carbon only uses bold for the smallest headers:
+*  https://carbondesignsystem.com/guidelines/typography/type-sets/ */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
 /* ---------------------------------------------------------------------------
 * Drop shadows and border-radius
 * ---------------------------------------------------------------------------- */
